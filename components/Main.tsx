@@ -13,7 +13,7 @@ const Main = () => {
           <h1 className="py-2 text-gray-700">Репетитор по истории и обществознанию</h1>
           <p className="py-4 text-gray-600 max-w-[70%] m-auto">
             Какой то длинный текст который что-то рассказывает про тебя и возможно твой
-            опыт и еще что-нибудь.
+            опыт и еще что-нибудь еще.
           </p>
           <div className="flex items-center justify-between max-w-[330px] m-auto p-4">
             <div className="rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 hover:shadow-gray-700 ease-in duration-300">
