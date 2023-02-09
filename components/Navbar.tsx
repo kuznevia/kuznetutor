@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import logoPic from 'public/assets/logo.png';
+import LogoPic from 'public/assets/logo.png';
 import React, { useState } from 'react';
 import { AiOutlineClose, AiOutlineMail, AiOutlineMenu } from 'react-icons/ai';
 import { BsFillPersonLinesFill } from 'react-icons/bs';
@@ -17,7 +17,7 @@ const Navbar = () => {
   return (
     <div className="fixed w-full h-20 shadow-xl z-[100]">
       <div className="flex justify-between items-center w-full h-full px-2 2xl:px-16">
-        <Image src={logoPic} alt="логотип" width="125" height="50" />
+        <Image src={LogoPic} alt="логотип" width="125" height="50" />
         <div>
           <ul className="hidden md:flex">
             <Link href="/">
@@ -50,7 +50,7 @@ const Navbar = () => {
         >
           <div>
             <div className="flex w-full items-center justify-between">
-              <Image src={logoPic} alt="логотип" width="87" height="35" />
+              <Image src={LogoPic} alt="логотип" width="87" height="35" />
               <div
                 onClick={handleNav(false)}
                 role="button"
