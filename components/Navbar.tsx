@@ -27,13 +27,10 @@ const Navbar = () => {
               <li className="ml-10 text-small uppercase hover:border-b">Обо мне</li>
             </Link>
             <Link href="/">
-              <li className="ml-10 text-small uppercase hover:border-b">Навыки</li>
+              <li className="ml-10 text-small uppercase hover:border-b">Отзывы</li>
             </Link>
             <Link href="/">
               <li className="ml-10 text-small uppercase hover:border-b">Контакты</li>
-            </Link>
-            <Link href="/">
-              <li className="ml-10 text-small uppercase hover:border-b">Отзывы</li>
             </Link>
           </ul>
           <div onClick={handleNav(true)} role="button" tabIndex={0} className="md:hidden">
@@ -76,13 +73,10 @@ const Navbar = () => {
                 <li className="py-4 text-sm">Обо мне</li>
               </Link>
               <Link href="/">
-                <li className="py-4 text-sm">Навыки</li>
+                <li className="py-4 text-sm">Отзывы</li>
               </Link>
               <Link href="/">
                 <li className="py-4 text-sm">Контакты</li>
-              </Link>
-              <Link href="/">
-                <li className="py-4 text-sm">Отзывы</li>
               </Link>
             </ul>
             <div className="pt-40">
