@@ -1,35 +1,53 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import LogoPic from 'public/assets/logo.png';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AiOutlineClose, AiOutlineMail, AiOutlineMenu } from 'react-icons/ai';
 import { BsFillPersonLinesFill } from 'react-icons/bs';
 import { FiPhoneCall } from 'react-icons/fi';
 import { SlSocialVkontakte } from 'react-icons/sl';
 
 const Navbar = () => {
-  const [nav, setNav] = useState<boolean>(false);
+  const [nav, setNav] = useState(false);
+  const [shadow, setShadow] = useState(false);
 
   const handleNav = (state: boolean) => () => {
     setNav(state);
   };
 
+  useEffect(() => {
+    const handleShadow = () => {
+      if (window.scrollY >= 90) {
+        setShadow(true);
+      } else {
+        setShadow(false);
+      }
+    };
+    window.addEventListener('scroll', handleShadow);
+  }, []);
+
   return (
-    <div className="fixed w-full h-20 shadow-xl z-[100]">
+    <div
+      className={
+        shadow ? 'fixed w-full h-20 shadow-xl z-[100]' : 'fixed w-full h-20  z-[100]'
+      }
+    >
       <div className="flex justify-between items-center w-full h-full px-2 2xl:px-16">
-        <Image src={LogoPic} alt="логотип" width="125" height="50" />
+        <Link href="/">
+          <Image src={LogoPic} alt="логотип" width="125" height="50" />
+        </Link>
         <div>
           <ul className="hidden md:flex">
             <Link href="/">
               <li className="ml-10 text-small uppercase hover:border-b">Главная</li>
             </Link>
-            <Link href="/">
+            <Link href="/#about">
               <li className="ml-10 text-small uppercase hover:border-b">Обо мне</li>
             </Link>
-            <Link href="/">
+            <Link href="/#reviews">
               <li className="ml-10 text-small uppercase hover:border-b">Отзывы</li>
             </Link>
-            <Link href="/">
+            <Link href="/#contact">
               <li className="ml-10 text-small uppercase hover:border-b">Контакты</li>
             </Link>
           </ul>
