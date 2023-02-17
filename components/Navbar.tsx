@@ -29,7 +29,9 @@ const Navbar = () => {
   return (
     <div
       className={
-        shadow ? 'fixed w-full h-20 shadow-xl z-[100]' : 'fixed w-full h-20  z-[100]'
+        shadow
+          ? 'fixed w-full h-20 shadow-xl z-[100] bg-[#ecf0f3]'
+          : 'fixed w-full h-20  z-[100] bg-[#ecf0f3]'
       }
     >
       <div className="flex justify-between items-center w-full h-full px-2 2xl:px-16">
@@ -68,7 +70,11 @@ const Navbar = () => {
         >
           <div>
             <div className="flex w-full items-center justify-between">
-              <Image src={LogoPic} alt="логотип" width="87" height="35" />
+              <Link href="/">
+                <div onClick={() => setNav(false)} role="button" tabIndex={0}>
+                  <Image src={LogoPic} alt="логотип" width="87" height="35" />
+                </div>
+              </Link>
               <div
                 onClick={handleNav(false)}
                 role="button"
@@ -78,23 +84,31 @@ const Navbar = () => {
                 <AiOutlineClose />
               </div>
             </div>
-            <div>
+            <div className="border-b border-gray-300 my-4">
               <p className="w-[85%] md:w-[90%] py-4">Пример текста для сайта</p>
             </div>
           </div>
           <div className="py-4 flex flex-col">
             <ul className="uppercase">
               <Link href="/">
-                <li className="py-4 text-sm">Главная</li>
+                <div onClick={() => setNav(false)} role="button" tabIndex={0}>
+                  <li className="py-4 text-sm">Главная</li>
+                </div>
               </Link>
-              <Link href="/">
-                <li className="py-4 text-sm">Обо мне</li>
+              <Link href="/#about">
+                <div onClick={() => setNav(false)} role="button" tabIndex={0}>
+                  <li className="py-4 text-sm">Обо мне</li>
+                </div>
               </Link>
-              <Link href="/">
-                <li className="py-4 text-sm">Отзывы</li>
+              <Link href="/#reviews">
+                <div onClick={() => setNav(false)} role="button" tabIndex={0}>
+                  <li className="py-4 text-sm">Отзывы</li>
+                </div>
               </Link>
-              <Link href="/">
-                <li className="py-4 text-sm">Контакты</li>
+              <Link href="/#contact">
+                <div onClick={() => setNav(false)} role="button" tabIndex={0}>
+                  <li className="py-4 text-sm">Контакты</li>
+                </div>
               </Link>
             </ul>
             <div className="pt-40">
