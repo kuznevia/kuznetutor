@@ -1,5 +1,8 @@
+import { PrismaClient } from '@prisma/client';
 import { IReview } from 'models/Client';
-import { getAllReviewsIds, getReviewData } from 'utils/reviews';
+import { getAllReviewsIds } from 'utils/reviews';
+
+const prisma = new PrismaClient();
 
 export default function Review({ reviewData }: { reviewData?: IReview }) {
   if (!reviewData) {
@@ -15,7 +18,8 @@ export default function Review({ reviewData }: { reviewData?: IReview }) {
 }
 
 export async function getStaticPaths() {
-  const paths = getAllReviewsIds();
+  const reviews: IReview[] = await prisma.review.findMany();
+  const paths = getAllReviewsIds(reviews);
   return {
     paths,
     fallback: false,
@@ -23,7 +27,13 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }: { params: { id: string } }) {
-  const reviewData = getReviewData(params.id);
+  const reviewData = await prisma.review.findFirst({
+    where: {
+      id: {
+        equals: params.id,
+      },
+    },
+  });
   return {
     props: {
       reviewData,
