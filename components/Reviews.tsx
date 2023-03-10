@@ -1,9 +1,10 @@
 import React from 'react';
-import { reviews } from 'utils/reviews';
+
+import { IReview } from '@/models/Client';
 
 import ReviewItem from './ReviewItem';
 
-const Reviews = () => {
+const Reviews = ({ reviews }: { reviews: IReview[] }) => {
   return (
     <div id="reviews" className="w-full">
       <div className="max-w-[1240px] mx-auto px-2 py-16">

@@ -1,11 +1,27 @@
+import { PrismaClient } from '@prisma/client';
 import About from 'components/About';
 import Contact from 'components/Contact';
 import Main from 'components/Main';
 import Navbar from 'components/Navbar';
 import Reviews from 'components/Reviews';
+import { IReview } from 'models/Client';
+import { InferGetStaticPropsType } from 'next';
 import Head from 'next/head';
 
-export default function Home() {
+const prisma = new PrismaClient();
+
+export const getStaticProps = async () => {
+  const reviews: IReview[] = await prisma.review.findMany();
+  return {
+    props: {
+      reviews,
+    },
+  };
+};
+
+export default function Home({
+  reviews,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
       <Head>
@@ -17,7 +33,7 @@ export default function Home() {
       <Navbar />
       <Main />
       <About />
-      <Reviews />
+      <Reviews reviews={reviews} />
       <Contact />
     </>
   );
