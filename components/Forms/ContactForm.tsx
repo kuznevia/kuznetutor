@@ -2,7 +2,6 @@ import { sendContactForm } from 'data/api';
 import { getSecondsString } from 'data/utils';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import ButtonPreloader from 'ui/ButtonPreloader';
 
 export type FormData = {
   name: string;
@@ -176,10 +175,12 @@ const ContactForm = () => {
             )}
           </div>
           <button
-            className="w-full p-4 mt-4 text-gray-100"
+            className={`w-full p-4 mt-4 text-gray-100 ${
+              formState !== FormState.filling && 'opacity-60'
+            }`}
             disabled={formState !== FormState.filling}
           >
-            {formState === FormState.submitting ? 'Отправить' : <ButtonPreloader />}
+            {formState === FormState.filling ? 'Отправить' : 'Отправка...'}
           </button>
         </form>
       </div>
