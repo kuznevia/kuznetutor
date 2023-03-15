@@ -1,5 +1,6 @@
-import { sendContactForm } from 'lib/api';
-import React, { useEffect } from 'react';
+import { sendContactForm } from 'data/api';
+import { getSecondsString } from 'data/utils';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 export type FormData = {
@@ -10,21 +11,68 @@ export type FormData = {
   message: string;
 };
 
+enum FormState {
+  filling = 'filling',
+  submitting = 'submitting',
+  sent = 'sent',
+  notSent = 'notSent',
+}
+
 const ContactForm = () => {
+  const [formState, setFormState] = useState<FormState>(FormState.filling);
+  const [formError, setFormError] = useState('');
+  const [count, setCount] = useState(10);
   const {
     handleSubmit,
     register,
     reset,
-    formState: { errors, isSubmitting, isSubmitSuccessful },
+    formState: { errors },
   } = useForm<FormData>();
 
-  useEffect(() => {
-    reset();
-  }, [isSubmitSuccessful, reset]);
-
   const onSubmit = async (data: FormData) => {
-    await sendContactForm(data);
+    setFormState(FormState.submitting);
+
+    try {
+      await sendContactForm(data);
+      setFormState(FormState.sent);
+      reset();
+    } catch (error) {
+      setFormState(FormState.notSent);
+      if (error instanceof Error) {
+        setFormError(error.message);
+      }
+    }
   };
+
+  if (formState === FormState.sent || formState === FormState.notSent) {
+    if (count > 0) {
+      setTimeout(() => {
+        setCount(count - 1);
+      }, 1000);
+    }
+    return (
+      <div className="col-span-3 w-full h-auto shadow-xl shadow-gray-400 rounded-xl lg:p-4 flex justify-center items-center">
+        <div className="py-10">
+          <h2 className="py-2">
+            {formState === FormState.sent ? 'Форма отправлена' : 'Форма не отправлена'}
+          </h2>
+          {formState === FormState.notSent && (
+            <p className="text-center">{formError || 'Неизвестная ошибка'}</p>
+          )}
+          <button
+            className={`w-full p-4 mt-4 text-gray-100 ${count > 0 && 'opacity-60'}`}
+            onClick={() => {
+              setFormState(FormState.filling);
+              setCount(10);
+            }}
+            disabled={count > 0}
+          >
+            Заполнить повторно {count > 0 && `через ${count} ${getSecondsString(count)}`}
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="col-span-3 w-full h-auto shadow-xl shadow-gray-400 rounded-xl lg:p-4">
@@ -111,8 +159,13 @@ const ContactForm = () => {
               </p>
             )}
           </div>
-          <button className="w-full p-4 mt-4 text-gray-100" disabled={isSubmitting}>
-            Отправить
+          <button
+            className={`w-full p-4 mt-4 text-gray-100 ${
+              formState !== FormState.filling && 'opacity-60'
+            }`}
+            disabled={formState !== FormState.filling}
+          >
+            {formState === FormState.filling ? 'Отправить' : 'Отправка...'}
           </button>
         </form>
       </div>
