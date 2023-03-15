@@ -179,7 +179,7 @@ const ContactForm = () => {
             className="w-full p-4 mt-4 text-gray-100"
             disabled={formState !== FormState.filling}
           >
-            {formState === 'filling' ? 'Отправить' : <ButtonPreloader />}
+            {formState === FormState.submitting ? 'Отправить' : <ButtonPreloader />}
           </button>
         </form>
       </div>
