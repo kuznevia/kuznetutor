@@ -44,47 +44,32 @@ const ContactForm = () => {
     }
   };
 
-  if (formState === FormState.sent) {
+  if (formState === FormState.sent || formState === FormState.notSent) {
     if (count > 0) {
       setTimeout(() => {
         setCount(count - 1);
       }, 1000);
     }
     return (
-      <div>
-        <p>Форма отправлена</p>
-        <button
-          onClick={() => {
-            setFormState(FormState.filling);
-            setCount(10);
-          }}
-          disabled={count > 0}
-        >
-          Заполнить повторно {count > 0 && `через ${count} ${getSecondsString(count)}`}
-        </button>
-      </div>
-    );
-  }
-
-  if (formState === FormState.notSent) {
-    if (count > 0) {
-      setTimeout(() => {
-        setCount(count - 1);
-      }, 1000);
-    }
-    return (
-      <div>
-        <p>Форма не отправлена</p>
-        <p>{formError || 'Неизвестная ошибка'}</p>
-        <button
-          onClick={() => {
-            setFormState(FormState.filling);
-            setCount(10);
-          }}
-          disabled={count > 0}
-        >
-          Заполнить повторно
-        </button>
+      <div className="col-span-3 w-full h-auto shadow-xl shadow-gray-400 rounded-xl lg:p-4 flex justify-center items-center">
+        <div className="py-10">
+          <h2 className="py-2">
+            {formState === FormState.sent ? 'Форма отправлена' : 'Форма не отправлена'}
+          </h2>
+          {formState === FormState.notSent && (
+            <p className="text-center">{formError || 'Неизвестная ошибка'}</p>
+          )}
+          <button
+            className={`w-full p-4 mt-4 text-gray-100 ${count > 0 && 'opacity-60'}`}
+            onClick={() => {
+              setFormState(FormState.filling);
+              setCount(10);
+            }}
+            disabled={count > 0}
+          >
+            Заполнить повторно {count > 0 && `через ${count} ${getSecondsString(count)}`}
+          </button>
+        </div>
       </div>
     );
   }
