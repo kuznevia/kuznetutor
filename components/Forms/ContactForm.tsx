@@ -1,6 +1,8 @@
-import { sendContactForm } from 'lib/api';
-import React, { useEffect } from 'react';
+import { sendContactForm } from 'data/api';
+import { getSecondsString } from 'data/utils';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import ButtonPreloader from 'ui/ButtonPreloader';
 
 export type FormData = {
   name: string;
@@ -10,21 +12,83 @@ export type FormData = {
   message: string;
 };
 
+enum FormState {
+  filling = 'filling',
+  submitting = 'submitting',
+  sent = 'sent',
+  notSent = 'notSent',
+}
+
 const ContactForm = () => {
+  const [formState, setFormState] = useState<FormState>(FormState.filling);
+  const [formError, setFormError] = useState('');
+  const [count, setCount] = useState(10);
   const {
     handleSubmit,
     register,
     reset,
-    formState: { errors, isSubmitting, isSubmitSuccessful },
+    formState: { errors },
   } = useForm<FormData>();
 
-  useEffect(() => {
-    reset();
-  }, [isSubmitSuccessful, reset]);
-
   const onSubmit = async (data: FormData) => {
-    await sendContactForm(data);
+    setFormState(FormState.submitting);
+
+    try {
+      await sendContactForm(data);
+      setFormState(FormState.sent);
+      reset();
+    } catch (error) {
+      setFormState(FormState.notSent);
+      if (error instanceof Error) {
+        setFormError(error.message);
+      }
+    }
   };
+
+  if (formState === FormState.sent) {
+    if (count > 0) {
+      setTimeout(() => {
+        setCount(count - 1);
+      }, 1000);
+    }
+    return (
+      <div>
+        <p>Форма отправлена</p>
+        <button
+          onClick={() => {
+            setFormState(FormState.filling);
+            setCount(10);
+          }}
+          disabled={count > 0}
+        >
+          Заполнить повторно {count > 0 && `через ${count} ${getSecondsString(count)}`}
+        </button>
+      </div>
+    );
+  }
+
+  if (formState === FormState.notSent) {
+    if (count > 0) {
+      setTimeout(() => {
+        setCount(count - 1);
+      }, 1000);
+    }
+    return (
+      <div>
+        <p>Форма не отправлена</p>
+        <p>{formError || 'Неизвестная ошибка'}</p>
+        <button
+          onClick={() => {
+            setFormState(FormState.filling);
+            setCount(10);
+          }}
+          disabled={count > 0}
+        >
+          Заполнить повторно
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div className="col-span-3 w-full h-auto shadow-xl shadow-gray-400 rounded-xl lg:p-4">
@@ -111,8 +175,11 @@ const ContactForm = () => {
               </p>
             )}
           </div>
-          <button className="w-full p-4 mt-4 text-gray-100" disabled={isSubmitting}>
-            Отправить
+          <button
+            className="w-full p-4 mt-4 text-gray-100"
+            disabled={formState !== FormState.filling}
+          >
+            {formState === 'filling' ? 'Отправить' : <ButtonPreloader />}
           </button>
         </form>
       </div>
