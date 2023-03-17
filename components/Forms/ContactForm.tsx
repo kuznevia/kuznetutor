@@ -1,3 +1,5 @@
+import { Input } from 'components/ui/Input';
+import { TextArea } from 'components/ui/TextArea';
 import { sendContactForm } from 'data/api';
 import { getSecondsString } from 'data/utils';
 import React, { useState } from 'react';
@@ -83,85 +85,53 @@ const ContactForm = () => {
               <label className="uppercase text-sm py-2" htmlFor="name">
                 Имя
               </label>
-              <input
+              <Input
                 {...register('name', { required: true })}
-                id="name"
-                className={`border-2 rounded-lg p-3 flex ${
-                  errors.name
-                    ? 'border-red-500 focus:outline-none'
-                    : 'border-gray-300 outline-[var(--color-primary)]'
-                }`}
-                type="text"
-                aria-invalid={errors.name ? 'true' : 'false'}
+                error={errors.name && { error: errors.name, text: 'Введите имя' }}
               />
-              {errors.name?.type === 'required' && (
-                <p role="alert" className="text-red-500">
-                  Введите имя
-                </p>
-              )}
             </div>
             <div className="flex flex-col">
               <label className="uppercase text-sm py-2" htmlFor="phoneNumber">
                 Номер телефона
               </label>
-              <input
+              <Input
                 {...register('phoneNumber', { required: true })}
-                id="phoneNumber"
-                className={`border-2 rounded-lg p-3 flex ${
-                  errors.phoneNumber
-                    ? 'border-red-500 focus:outline-none'
-                    : 'border-gray-300 outline-[var(--color-primary)]'
-                }`}
                 type="tel"
+                error={
+                  errors.phoneNumber && {
+                    error: errors.phoneNumber,
+                    text: 'Введите номер телефона',
+                  }
+                }
               />
-              {errors.phoneNumber?.type === 'required' && (
-                <p role="alert" className="text-red-500">
-                  Введите номер телефона
-                </p>
-              )}
             </div>
           </div>
           <div className="flex flex-col py-2">
             <label className="uppercase text-sm py-2" htmlFor="email">
               Электронная почта
             </label>
-            <input
-              {...register('email')}
-              id="email"
-              className="border-2 rounded-lg p-3 flex border-gray-300 outline-[var(--color-primary)]"
-              type="email"
-            />
+            <Input {...register('email')} type="email" />
           </div>
           <div className="flex flex-col py-2">
             <label className="uppercase text-sm py-2" htmlFor="subject">
               Тема
             </label>
-            <input
-              {...register('subject')}
-              id="subject"
-              className="border-2 rounded-lg p-3 flex border-gray-300 outline-[var(--color-primary)]"
-              type="text"
-            />
+            <Input {...register('subject')} />
           </div>
           <div className="flex flex-col py-2">
             <label className="uppercase text-sm py-2" htmlFor="message">
               Сообщение
             </label>
-            <textarea
+            <TextArea
               {...register('message', { required: true })}
-              id="message"
-              className={`border-2 rounded-lg p-3 flex ${
-                errors.message
-                  ? 'border-red-500 focus:outline-none'
-                  : 'border-gray-300 outline-[var(--color-primary)]'
-              }`}
+              error={
+                errors.message && {
+                  error: errors.message,
+                  text: 'Введите ваше сообщение',
+                }
+              }
               rows={10}
             />
-            {errors.message?.type === 'required' && (
-              <p role="alert" className="text-red-500">
-                Введите ваше сообщение
-              </p>
-            )}
           </div>
           <button
             className={`w-full p-4 mt-4 text-gray-100 ${
