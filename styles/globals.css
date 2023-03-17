@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import 'variables.css';
 
 html {
   scroll-behavior: smooth !important;
@@ -8,7 +9,7 @@ html {
 
 @layer base {
   body {
-    @apply bg-[#ecf0f3] text-[#1f2937] tracking-wide;
+    @apply bg-[var(--bg-primary)] text-[var(--color-primary)] tracking-wide;
   }
 
   h1,
@@ -29,10 +30,10 @@ html {
   }
 
   li {
-    @apply cursor-pointer;
+    @apply cursor-pointer border-current;
   }
 
   button {
-    @apply shadow-xl shadow-gray-400 rounded-xl uppercase bg-gradient-to-r from-[#5651e5] to-[#709dff] text-white;
+    @apply shadow-xl shadow-gray-400 rounded-xl uppercase bg-gradient-to-r from-[var(--color-secondary)] to-[var(--color-primary)] text-white;
   }
 }
