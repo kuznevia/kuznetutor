@@ -30,8 +30,8 @@ const Navbar = () => {
     <div
       className={
         shadow
-          ? 'fixed w-full h-20 shadow-xl z-[100] bg-[#ecf0f3]'
-          : 'fixed w-full h-20  z-[100] bg-[#ecf0f3]'
+          ? 'fixed w-full h-20 shadow-xl z-[100] bg-[var(--bg-primary)]'
+          : 'fixed w-full h-20  z-[100]'
       }
     >
       <div className="flex justify-between items-center w-full h-full px-2 2xl:px-16">
@@ -64,7 +64,7 @@ const Navbar = () => {
         <div
           className={
             nav
-              ? 'fixed left-0 top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-[#ecf0f3] p-10 ease-in duration-500'
+              ? 'fixed left-0 top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-[var(--bg-primary)] p-10 ease-in duration-500'
               : 'fixed left-[-100%] p-10 ease-in duration-500'
           }
         >
@@ -84,7 +84,7 @@ const Navbar = () => {
                 <AiOutlineClose />
               </div>
             </div>
-            <div className="border-b border-gray-300 my-4">
+            <div className="border-b border-[var(--color-primary)] my-4">
               <p className="w-[85%] md:w-[90%] py-4">Пример текста для сайта</p>
             </div>
           </div>
@@ -112,7 +112,9 @@ const Navbar = () => {
               </Link>
             </ul>
             <div className="pt-40">
-              <p className="uppercase tracking-widest text-[#5651e5]">Социальные сети</p>
+              <p className="uppercase tracking-widest text-[var(--color-secondary)]">
+                Социальные сети
+              </p>
               <div className="flex items-center justify-between my-4 w-full sm:w-[80%]">
                 <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 hover:shadow-gray-700 ease-in duration-300">
                   <SlSocialVkontakte />

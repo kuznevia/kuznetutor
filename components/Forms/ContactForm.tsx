@@ -87,7 +87,9 @@ const ContactForm = () => {
                 {...register('name', { required: true })}
                 id="name"
                 className={`border-2 rounded-lg p-3 flex ${
-                  errors.name ? 'border-red-500 focus:outline-none' : 'border-gray-300'
+                  errors.name
+                    ? 'border-red-500 focus:outline-none'
+                    : 'border-gray-300 outline-[var(--color-primary)]'
                 }`}
                 type="text"
                 aria-invalid={errors.name ? 'true' : 'false'}
@@ -108,7 +110,7 @@ const ContactForm = () => {
                 className={`border-2 rounded-lg p-3 flex ${
                   errors.phoneNumber
                     ? 'border-red-500 focus:outline-none'
-                    : 'border-gray-300'
+                    : 'border-gray-300 outline-[var(--color-primary)]'
                 }`}
                 type="tel"
               />
@@ -126,7 +128,7 @@ const ContactForm = () => {
             <input
               {...register('email')}
               id="email"
-              className="border-2 rounded-lg p-3 flex border-gray-300"
+              className="border-2 rounded-lg p-3 flex border-gray-300 outline-[var(--color-primary)]"
               type="email"
             />
           </div>
@@ -137,7 +139,7 @@ const ContactForm = () => {
             <input
               {...register('subject')}
               id="subject"
-              className="border-2 rounded-lg p-3 flex border-gray-300"
+              className="border-2 rounded-lg p-3 flex border-gray-300 outline-[var(--color-primary)]"
               type="text"
             />
           </div>
@@ -149,7 +151,9 @@ const ContactForm = () => {
               {...register('message', { required: true })}
               id="message"
               className={`border-2 rounded-lg p-3 flex ${
-                errors.message ? 'border-red-500 focus:outline-none' : 'border-gray-300'
+                errors.message
+                  ? 'border-red-500 focus:outline-none'
+                  : 'border-gray-300 outline-[var(--color-primary)]'
               }`}
               rows={10}
             />

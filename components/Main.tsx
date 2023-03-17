@@ -9,9 +9,9 @@ const Main = () => {
     <div id="home" className="w-full h-screen text-center">
       <div className="max-w-[1240px] w-full h-full mx-auto p-2 flex justify-center items-center">
         <div>
-          <h1 className="py-4 text-[#5651e5]">Надежда Кузнецова</h1>
-          <h1 className="py-2 text-gray-700">Репетитор по истории и обществознанию</h1>
-          <p className="py-4 text-gray-600 max-w-[70%] m-auto">
+          <h1 className="py-4 text-[#e1845d]">Надежда Кузнецова</h1>
+          <h1 className="py-2">Репетитор по истории и обществознанию</h1>
+          <p className="py-4 max-w-[70%] m-auto">
             Какой то длинный текст который что-то рассказывает про тебя и возможно твой
             опыт и еще что-нибудь еще.
           </p>
