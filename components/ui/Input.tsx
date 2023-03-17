@@ -22,7 +22,7 @@ export const Input = forwardRef(
           className={`border-2 rounded-lg p-3 flex bg-[#c1ffe4] ${
             error?.error
               ? 'border-red-500 focus:outline-none'
-              : 'border-[var(--color-primary)] focus:border-[var(--color-secondary)] focus:outline-none'
+              : 'border-[#c1ffe4] focus:border-[var(--color-primary)] focus:outline-none'
           }`}
           aria-invalid={error?.error ? 'true' : 'false'}
           {...rest}
