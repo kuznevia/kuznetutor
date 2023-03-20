@@ -12,10 +12,7 @@ import { SlSocialVkontakte } from 'react-icons/sl';
 const Contact = () => (
   <div id="contact" className="w-full lg:h-screen ">
     <div className="max-w-[1240px] m-auto px-2 py-16 w-full">
-      <p className="text-xl tracking-widest uppercase text-[var(--color-secondary)]">
-        Контакты
-      </p>
-      <h2 className="py-4">Связаться со мной</h2>
+      <h2 className="py-4 text-[var(--color-secondary)]">Связаться со мной</h2>
       <div className="grid lg:grid-cols-5 gap-8">
         {/* left */}
         <div className="col-span-3 lg:col-span-2 w-full h-full shadow-xl shadow-gray-400 rounded-xl p-4">
@@ -33,7 +30,7 @@ const Contact = () => (
               <p className="py-4">Персональные занятия в удаленном формате</p>
             </div>
             <div>
-              <p className="uppercase pt-8">Свяжитесь со мной</p>
+              <p className="uppercase">Свяжитесь со мной</p>
               <div className="flex items-center justify-between py-4">
                 <div className="rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 hover:shadow-gray-700 ease-in duration-300">
                   <SlSocialVkontakte />
