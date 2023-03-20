@@ -1,4 +1,5 @@
 import ContactForm from 'components/Forms/ContactForm';
+import { Icon } from 'components/ui/Icon';
 import Image from 'next/image';
 import Link from 'next/link';
 import ContactImg from 'public/assets/contact.jpg';
@@ -25,25 +26,17 @@ const Contact = () => (
               />
             </div>
             <div>
-              <h2 className="py-2">Надежда Кузнецова</h2>
+              <h2 className="py-2 text-[var(--color-secondary)]">Надежда Кузнецова</h2>
               <p>Репетитор по истории и обществознанию</p>
               <p className="py-4">Персональные занятия в удаленном формате</p>
             </div>
             <div>
               <p className="uppercase">Свяжитесь со мной</p>
               <div className="flex items-center justify-between py-4">
-                <div className="rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 hover:shadow-gray-700 ease-in duration-300">
-                  <SlSocialVkontakte />
-                </div>
-                <div className="rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 hover:shadow-gray-700 ease-in duration-300">
-                  <FiPhoneCall />
-                </div>
-                <div className="rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 hover:shadow-gray-700 ease-in duration-300">
-                  <AiOutlineMail />
-                </div>
-                <div className="rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 hover:shadow-gray-700 ease-in duration-300">
-                  <BsFillPersonLinesFill />
-                </div>
+                <Icon Icon={SlSocialVkontakte} />
+                <Icon Icon={FiPhoneCall} />
+                <Icon Icon={AiOutlineMail} />
+                <Icon Icon={BsFillPersonLinesFill} />
               </div>
             </div>
           </div>
