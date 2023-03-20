@@ -19,10 +19,10 @@ export const Input = forwardRef(
           name={name}
           type={type}
           ref={ref}
-          className={`border-2 rounded-lg p-3 flex bg-[#c1ffe4] ${
+          className={`border-2 rounded-lg p-3 flex ${
             error?.error
               ? 'border-red-500 focus:outline-none'
-              : 'border-[#c1ffe4] focus:border-[var(--color-primary)] focus:outline-none'
+              : 'focus:border-[var(--color-secondary)] focus:outline-none'
           }`}
           aria-invalid={error?.error ? 'true' : 'false'}
           {...rest}
