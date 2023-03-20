@@ -1,7 +1,7 @@
 import { IReview } from 'models/Client';
 import Image from 'next/image';
 import Link from 'next/link';
-import ReviewImg from 'public/assets/reviews.jpg';
+import ReviewImg from 'public/assets/reviews.jpeg';
 import React from 'react';
 
 const ReviewItem = ({ review, title }: { review: IReview; title: string }) => {
