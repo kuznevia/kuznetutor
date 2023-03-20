@@ -1,6 +1,7 @@
+import { Icon } from 'components/ui/Icon';
 import Image from 'next/image';
 import Link from 'next/link';
-import LogoPic from 'public/assets/logo.png';
+import LogoPic from 'public/assets/books.png';
 import React, { useEffect, useState } from 'react';
 import { AiOutlineClose, AiOutlineMail, AiOutlineMenu } from 'react-icons/ai';
 import { BsFillPersonLinesFill } from 'react-icons/bs';
@@ -36,21 +37,29 @@ const Navbar = () => {
     >
       <div className="flex justify-between items-center w-full h-full px-2 2xl:px-16">
         <Link href="/">
-          <Image src={LogoPic} alt="логотип" width="125" height="50" />
+          <Image src={LogoPic} alt="логотип" width="70" height="25" />
         </Link>
         <div>
           <ul className="hidden md:flex">
             <Link href="/">
-              <li className="ml-10 text-small uppercase hover:border-b">Главная</li>
+              <li className="ml-10 text-small uppercase hover:text-[var(--color-secondary)] hover:scale-110 ease-in duration-300">
+                Главная
+              </li>
             </Link>
             <Link href="/#about">
-              <li className="ml-10 text-small uppercase hover:border-b">Обо мне</li>
+              <li className="ml-10 text-small uppercase hover:text-[var(--color-secondary)] hover:scale-110 ease-in duration-300">
+                Обо мне
+              </li>
             </Link>
             <Link href="/#reviews">
-              <li className="ml-10 text-small uppercase hover:border-b">Отзывы</li>
+              <li className="ml-10 text-small uppercase hover:text-[var(--color-secondary)] hover:scale-110 ease-in duration-300">
+                Отзывы
+              </li>
             </Link>
             <Link href="/#contact">
-              <li className="ml-10 text-small uppercase hover:border-b">Контакты</li>
+              <li className="ml-10 text-small uppercase hover:text-[var(--color-secondary)] hover:scale-110 ease-in duration-300">
+                Контакты
+              </li>
             </Link>
           </ul>
           <div onClick={handleNav(true)} role="button" tabIndex={0} className="md:hidden">
@@ -84,8 +93,10 @@ const Navbar = () => {
                 <AiOutlineClose />
               </div>
             </div>
-            <div className="border-b border-[var(--color-primary)] my-4">
-              <p className="w-[85%] md:w-[90%] py-4">Пример текста для сайта</p>
+            <div className="border-b border-[var(--color-secondary)] my-4">
+              <p className="w-[85%] md:w-[90%] py-4 text-[var(--color-secondary)]">
+                Разделы
+              </p>
             </div>
           </div>
           <div className="py-4 flex flex-col">
@@ -116,18 +127,10 @@ const Navbar = () => {
                 Социальные сети
               </p>
               <div className="flex items-center justify-between my-4 w-full sm:w-[80%]">
-                <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 hover:shadow-gray-700 ease-in duration-300">
-                  <SlSocialVkontakte />
-                </div>
-                <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 hover:shadow-gray-700 ease-in duration-300">
-                  <FiPhoneCall />
-                </div>
-                <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 hover:shadow-gray-700 ease-in duration-300">
-                  <AiOutlineMail />
-                </div>
-                <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 hover:shadow-gray-700 ease-in duration-300">
-                  <BsFillPersonLinesFill />
-                </div>
+                <Icon Icon={SlSocialVkontakte} nav />
+                <Icon Icon={FiPhoneCall} nav />
+                <Icon Icon={AiOutlineMail} nav />
+                <Icon Icon={BsFillPersonLinesFill} nav />
               </div>
             </div>
           </div>

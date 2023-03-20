@@ -22,11 +22,11 @@ html {
   }
 
   h1 {
-    @apply text-4xl sm:text-5xl md:text-6xl;
+    @apply text-4xl sm:text-5xl md:text-6xl text-gray-700;
   }
 
   h2 {
-    @apply text-3xl sm:text-4xl;
+    @apply text-3xl sm:text-4xl text-gray-700;
   }
 
   li {
@@ -34,6 +34,10 @@ html {
   }
 
   button {
-    @apply shadow-xl shadow-gray-400 rounded-xl uppercase bg-gradient-to-r from-[var(--color-secondary)] to-[var(--color-primary)] text-white;
+    @apply shadow-xl shadow-gray-400 rounded-xl uppercase bg-gradient-to-r from-[var(--color-secondary)] to-[#7ddbb4] text-white;
+  }
+
+  p {
+    @apply text-gray-600;
   }
 }
