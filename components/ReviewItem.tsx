@@ -17,7 +17,7 @@ const ReviewItem = ({ review, title }: { review: IReview; title: string }) => {
         alt="/"
       />
       <div className="hidden  group-hover:block absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
-        <h3 className="text-2xl text-[var(--color-secondary)] tracking-wider text-center text-white">
+        <h3 className="text-[var(--color-secondary)] tracking-wider text-center text-white">
           {title}
         </h3>
         <p className="pb-4 pt-2 text-center text-white">
