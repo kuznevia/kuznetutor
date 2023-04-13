@@ -33,10 +33,6 @@ html {
     @apply text-lg sm:text-3xl text-gray-700;
   }
 
-  h3 {
-    @apply text-2xl sm:text-3xl text-gray-700;
-  }
-
   li {
     @apply cursor-pointer border-current;
   }
