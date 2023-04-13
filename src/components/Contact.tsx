@@ -1,5 +1,3 @@
-import ContactForm from 'components/Forms/ContactForm';
-import { Icon } from 'components/ui/Icon';
 import Image from 'next/image';
 import Link from 'next/link';
 import ContactImg from 'public/assets/contact.jpg';
@@ -10,9 +8,12 @@ import { FiPhoneCall } from 'react-icons/fi';
 import { HiOutlineChevronDoubleUp } from 'react-icons/hi';
 import { SlSocialVkontakte } from 'react-icons/sl';
 
+import ContactForm from '@/src/components/Forms/ContactForm';
+import { Icon } from '@/src/components/ui/Icon';
+
 const Contact = () => (
   <div id="contact" className="w-full lg:h-screen ">
-    <div className="max-w-[1240px] m-auto px-2 py-16 w-full">
+    <div className="max-w-[1240px] m-auto px-2 py-8 w-full">
       <h2 className="py-4 text-[var(--color-secondary)]">Связаться со мной</h2>
       <div className="grid lg:grid-cols-5 gap-8">
         {/* left */}

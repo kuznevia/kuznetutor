@@ -1,4 +1,3 @@
-import { Icon } from 'components/ui/Icon';
 import Image from 'next/image';
 import Link from 'next/link';
 import LogoPic from 'public/assets/books.png';
@@ -7,6 +6,8 @@ import { AiOutlineClose, AiOutlineMail, AiOutlineMenu } from 'react-icons/ai';
 import { BsFillPersonLinesFill } from 'react-icons/bs';
 import { FiPhoneCall } from 'react-icons/fi';
 import { SlSocialVkontakte } from 'react-icons/sl';
+
+import { Icon } from '@/src/components/ui/Icon';
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);

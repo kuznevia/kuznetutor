@@ -1,9 +1,9 @@
-import { Input } from 'components/ui/Input';
-import { TextArea } from 'components/ui/TextArea';
-import { sendContactForm } from 'data/api';
-import { getSecondsString } from 'data/utils';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { sendEmail } from 'src/api/apiSlices/sendEmailApiSlice';
+import { getSecondsString } from 'src/api/data/utils';
+import { Input } from 'src/components/ui/Input';
+import { TextArea } from 'src/components/ui/TextArea';
 
 export type FormData = {
   name: string;
@@ -35,7 +35,7 @@ const ContactForm = () => {
     setFormState(FormState.submitting);
 
     try {
-      await sendContactForm(data);
+      await sendEmail(data);
       setFormState(FormState.sent);
       reset();
     } catch (error) {

@@ -1,12 +1,12 @@
 import { PrismaClient } from '@prisma/client';
-import About from 'components/About';
-import Contact from 'components/Contact';
-import Main from 'components/Main';
-import Navbar from 'components/Navbar';
-import Reviews from 'components/Reviews';
-import { IReview } from 'models/Client';
 import { InferGetStaticPropsType } from 'next';
 import Head from 'next/head';
+import About from 'src/components/About';
+import Contact from 'src/components/Contact';
+import Main from 'src/components/Main';
+import Navbar from 'src/components/Navbar';
+import Reviews from 'src/components/Reviews';
+import { IReview } from 'src/models/Client';
 
 const prisma = new PrismaClient();
 
