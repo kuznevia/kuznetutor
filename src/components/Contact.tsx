@@ -1,5 +1,5 @@
-import ContactForm from 'components/Forms/ContactForm';
-import { Icon } from 'components/ui/Icon';
+import ContactForm from '@/src/components/Forms/ContactForm';
+import { Icon } from '@/src/components/ui/Icon';
 import Image from 'next/image';
 import Link from 'next/link';
 import ContactImg from 'public/assets/contact.jpg';

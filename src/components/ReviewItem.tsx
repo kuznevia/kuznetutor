@@ -1,4 +1,4 @@
-import { IReview } from 'models/Client';
+import { IReview } from '@/src/models/Client';
 import Image from 'next/image';
 import Link from 'next/link';
 import ReviewImg from 'public/assets/reviews.jpeg';

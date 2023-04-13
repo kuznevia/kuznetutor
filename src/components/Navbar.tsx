@@ -1,4 +1,4 @@
-import { Icon } from 'components/ui/Icon';
+import { Icon } from '@/src/components/ui/Icon';
 import Image from 'next/image';
 import Link from 'next/link';
 import LogoPic from 'public/assets/books.png';

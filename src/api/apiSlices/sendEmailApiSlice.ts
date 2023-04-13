@@ -1,6 +1,6 @@
-import { FormData } from 'components/Forms/ContactForm';
+import { FormData } from '@/src/components/Forms/ContactForm';
 
-export const sendContactForm = async (data: FormData) =>
+export const sendEmail = async (data: FormData) =>
   fetch('/api/contact', {
     method: 'post',
     body: JSON.stringify(data),

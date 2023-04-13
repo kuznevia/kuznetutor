@@ -1,9 +1,8 @@
 /* eslint-disable no-console */
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import { FormData } from 'components/Forms/ContactForm';
 import type { NextApiRequest, NextApiResponse } from 'next';
-
-import { mailOptions, transporter } from '@/data/nodemailer';
+import { mailOptions, transporter } from 'src/api/data/nodemailer';
+import { FormData } from 'src/components/Forms/ContactForm';
 
 type Data = {
   message: string;
