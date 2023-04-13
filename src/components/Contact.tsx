@@ -1,5 +1,3 @@
-import ContactForm from 'components/Forms/ContactForm';
-import { Icon } from 'components/ui/Icon';
 import Image from 'next/image';
 import Link from 'next/link';
 import ContactImg from 'public/assets/contact.jpg';
@@ -9,6 +7,9 @@ import { BsFillPersonLinesFill } from 'react-icons/bs';
 import { FiPhoneCall } from 'react-icons/fi';
 import { HiOutlineChevronDoubleUp } from 'react-icons/hi';
 import { SlSocialVkontakte } from 'react-icons/sl';
+
+import ContactForm from '@/src/components/Forms/ContactForm';
+import { Icon } from '@/src/components/ui/Icon';
 
 const Contact = () => (
   <div id="contact" className="w-full lg:h-screen ">

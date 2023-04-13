@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { IReview } from '@/models/Client';
+import { IReview } from '@/src/models/Client';
 
 import ReviewItem from './ReviewItem';
 

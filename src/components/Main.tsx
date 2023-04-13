@@ -1,4 +1,3 @@
-import { Icon } from 'components/ui/Icon';
 import Image from 'next/image';
 import Nadya from 'public/assets/nadya.jpeg';
 import React from 'react';
@@ -6,6 +5,8 @@ import { AiOutlineMail } from 'react-icons/ai';
 import { BsFillPersonLinesFill } from 'react-icons/bs';
 import { FiPhoneCall } from 'react-icons/fi';
 import { SlSocialVkontakte } from 'react-icons/sl';
+
+import { Icon } from '@/src/components/ui/Icon';
 
 const Main = () => {
   return (

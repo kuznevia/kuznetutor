@@ -1,4 +1,4 @@
-import { IReview } from 'models/Client';
+import { IReview } from '@/src/models/Client';
 
 export const getAllReviewsIds = (reviews: IReview[]) =>
   reviews.map((review) => ({
