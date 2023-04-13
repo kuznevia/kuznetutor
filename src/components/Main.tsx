@@ -1,4 +1,4 @@
-import { Icon } from 'components/ui/Icon';
+import { Icon } from '@/src/components/ui/Icon';
 import Image from 'next/image';
 import Nadya from 'public/assets/nadya.jpeg';
 import React from 'react';

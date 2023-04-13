@@ -1,6 +1,6 @@
 import { PrismaClient } from '@prisma/client';
-import { IReview } from 'models/Client';
-import { getAllReviewsIds } from 'utils/reviews';
+import { IReview } from '@/src/models/Client';
+import { getAllReviewsIds } from '@/src/utils/reviews';
 
 const prisma = new PrismaClient();
 
