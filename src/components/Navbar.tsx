@@ -3,11 +3,11 @@ import Link from 'next/link';
 import LogoPic from 'public/assets/books.png';
 import React, { useEffect, useState } from 'react';
 import { AiOutlineClose, AiOutlineMail, AiOutlineMenu } from 'react-icons/ai';
-import { BsFillPersonLinesFill } from 'react-icons/bs';
 import { FiPhoneCall } from 'react-icons/fi';
 import { SlSocialVkontakte } from 'react-icons/sl';
-
-import { Icon } from '@/src/components/ui/Icon';
+import { TfiWrite } from 'react-icons/tfi';
+import { Icon } from 'src/components/ui/Icon';
+import { links } from 'src/utils/links';
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
@@ -128,10 +128,10 @@ const Navbar = () => {
                 Социальные сети
               </p>
               <div className="flex items-center justify-between my-4 w-full sm:w-[80%]">
-                <Icon Icon={SlSocialVkontakte} nav />
-                <Icon Icon={FiPhoneCall} nav />
-                <Icon Icon={AiOutlineMail} nav />
-                <Icon Icon={BsFillPersonLinesFill} nav />
+                <Icon link={links.vk()} Icon={SlSocialVkontakte} nav />
+                <Icon link={links.call()} Icon={FiPhoneCall} nav />
+                <Icon link={links.sendEmail()} Icon={AiOutlineMail} nav />
+                <Icon link={links.write()} Icon={TfiWrite} nav />
               </div>
             </div>
           </div>
