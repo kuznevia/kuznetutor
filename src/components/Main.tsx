@@ -10,7 +10,10 @@ import { links } from 'src/utils/links';
 
 const Main = () => {
   return (
-    <div id="home" className="w-full md:h-screen p-2 text-center flex items-center pt-16">
+    <div
+      id="home"
+      className="w-full md:h-screen px-2 py-8 text-center flex items-center "
+    >
       <div className="max-w-[1240px] m-auto md:grid grid-cols-3 gap-8">
         <div className="flex gap-4 justify-center items-center">
           <div className="w-full bg-[var(--bg-secondary)] h-auto mt-6 md:m-auto shadow-xl shadow-gray-400 rounded-xl p-2 md:p-4 hover:scale-105 ease-in duration-300">

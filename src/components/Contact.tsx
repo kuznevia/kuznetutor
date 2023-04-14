@@ -12,7 +12,7 @@ import { Icon } from 'src/components/ui/Icon';
 import { links } from 'src/utils/links';
 
 const Contact = () => (
-  <div id="contact" className="w-full lg:h-screen ">
+  <div id="contact" className="w-full lg:h-screen px-2 py-8">
     <div className="max-w-[1240px] m-auto px-2 py-8 w-full">
       <h2 className="py-4 text-[var(--color-secondary)]">Связаться со мной</h2>
       <div className="grid lg:grid-cols-5 gap-8">
