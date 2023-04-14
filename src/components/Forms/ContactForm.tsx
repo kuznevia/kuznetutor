@@ -79,6 +79,9 @@ const ContactForm = () => {
   return (
     <div className="col-span-3 w-full h-auto shadow-xl shadow-gray-400 rounded-xl lg:p-4">
       <div className="p-4">
+        <h3 className="pb-2 text-[var(--color-secondary)]">
+          Заполните форму, и я свяжусь с вами
+        </h3>
         <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
           <div className="grid md:grid-cols-2 gap-4 w-full py-2">
             <div className="flex flex-col">
@@ -130,7 +133,7 @@ const ContactForm = () => {
                   text: 'Введите ваше сообщение',
                 }
               }
-              rows={10}
+              rows={5}
             />
           </div>
           <button

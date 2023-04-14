@@ -26,14 +26,33 @@ const Contact = () => (
                 alt="/"
               />
             </div>
-            <div>
-              <h2 className="py-2 text-[var(--color-secondary)]">Надежда Кузнецова</h2>
-              <p>Репетитор по истории и обществознанию</p>
-              <p className="py-4">Персональные занятия в удаленном формате</p>
-            </div>
-            <div>
-              <p className="uppercase">Свяжитесь со мной</p>
-              <div className="flex items-center justify-between py-4">
+            <div className="flex flex-col justify-center items-center lg:mt-16">
+              <h2 className="pt-2 text-[var(--color-secondary)]">Мои контакты:</h2>
+              <h3 className="pt-2">
+                <Link
+                  className="hover:text-[var(--color-secondary)] ml-2"
+                  href={links.call()}
+                >
+                  +7-905-205-03-13
+                </Link>
+              </h3>
+              <h3 className="pt-2">
+                <Link
+                  className="hover:text-[var(--color-secondary)] ml-2"
+                  href={links.sendEmail()}
+                >
+                  evstanini@gmail.com
+                </Link>
+              </h3>
+              <h3 className="pt-2">
+                <Link
+                  className="hover:text-[var(--color-secondary)] ml-2"
+                  href={links.vk()}
+                >
+                  Вконтакте
+                </Link>
+              </h3>
+              <div className="w-full flex items-center justify-around py-4">
                 <Icon link={links.vk()} Icon={SlSocialVkontakte} />
                 <Icon link={links.call()} Icon={FiPhoneCall} />
                 <Icon link={links.sendEmail()} Icon={AiOutlineMail} />

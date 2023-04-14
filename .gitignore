@@ -18,7 +18,6 @@
 # misc
 .DS_Store
 *.pem
-.buildcache
 todo.md
 
 # debug
@@ -36,3 +35,4 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+.buildTScache
