@@ -2,11 +2,11 @@ import Image from 'next/image';
 import Nadya from 'public/assets/nadya.jpeg';
 import React from 'react';
 import { AiOutlineMail } from 'react-icons/ai';
-import { BsFillPersonLinesFill } from 'react-icons/bs';
 import { FiPhoneCall } from 'react-icons/fi';
 import { SlSocialVkontakte } from 'react-icons/sl';
-
-import { Icon } from '@/src/components/ui/Icon';
+import { TfiWrite } from 'react-icons/tfi';
+import { Icon } from 'src/components/ui/Icon';
+import { links } from 'src/utils/links';
 
 const Main = () => {
   return (
@@ -22,24 +22,20 @@ const Main = () => {
           </div>
         </div>
         <div className="md:hidden flex items-center justify-between max-w-[330px] m-auto mt-6 p-4">
-          <Icon Icon={SlSocialVkontakte} />
-          <Icon Icon={FiPhoneCall} />
-          <Icon Icon={AiOutlineMail} />
-          <Icon Icon={BsFillPersonLinesFill} />
+          <Icon link={links.vk()} Icon={SlSocialVkontakte} />
+          <Icon link={links.call()} Icon={FiPhoneCall} />
+          <Icon link={links.sendEmail()} Icon={AiOutlineMail} />
+          <Icon link={links.write()} Icon={TfiWrite} />
         </div>
         <div className="hidden md:flex col-start-2 col-end-4 max-w-[1240px] p-2 justify-center items-center">
           <div>
             <h1 className="py-4 text-[var(--color-secondary)]">Надежда Кузнецова</h1>
             <h1 className="py-2">Репетитор по истории и обществознанию</h1>
-            <p className="py-4 max-w-[70%] m-auto">
-              Какой то длинный текст который что-то рассказывает про тебя и возможно твой
-              опыт и еще что-нибудь еще.
-            </p>
             <div className="flex items-center justify-between max-w-[330px] m-auto p-4">
-              <Icon Icon={SlSocialVkontakte} />
-              <Icon Icon={FiPhoneCall} />
-              <Icon Icon={AiOutlineMail} />
-              <Icon Icon={BsFillPersonLinesFill} />
+              <Icon link={links.vk()} Icon={SlSocialVkontakte} />
+              <Icon link={links.call()} Icon={FiPhoneCall} />
+              <Icon link={links.sendEmail()} Icon={AiOutlineMail} />
+              <Icon link={links.write()} Icon={TfiWrite} />
             </div>
           </div>
         </div>

@@ -3,13 +3,13 @@ import Link from 'next/link';
 import ContactImg from 'public/assets/contact.jpg';
 import React from 'react';
 import { AiOutlineMail } from 'react-icons/ai';
-import { BsFillPersonLinesFill } from 'react-icons/bs';
 import { FiPhoneCall } from 'react-icons/fi';
 import { HiOutlineChevronDoubleUp } from 'react-icons/hi';
 import { SlSocialVkontakte } from 'react-icons/sl';
-
-import ContactForm from '@/src/components/Forms/ContactForm';
-import { Icon } from '@/src/components/ui/Icon';
+import { TfiWrite } from 'react-icons/tfi';
+import ContactForm from 'src/components/Forms/ContactForm';
+import { Icon } from 'src/components/ui/Icon';
+import { links } from 'src/utils/links';
 
 const Contact = () => (
   <div id="contact" className="w-full lg:h-screen ">
@@ -34,10 +34,10 @@ const Contact = () => (
             <div>
               <p className="uppercase">Свяжитесь со мной</p>
               <div className="flex items-center justify-between py-4">
-                <Icon Icon={SlSocialVkontakte} />
-                <Icon Icon={FiPhoneCall} />
-                <Icon Icon={AiOutlineMail} />
-                <Icon Icon={BsFillPersonLinesFill} />
+                <Icon link={links.vk()} Icon={SlSocialVkontakte} />
+                <Icon link={links.call()} Icon={FiPhoneCall} />
+                <Icon link={links.sendEmail()} Icon={AiOutlineMail} />
+                <Icon link={links.write()} Icon={TfiWrite} />
               </div>
             </div>
           </div>
