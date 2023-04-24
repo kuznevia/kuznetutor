@@ -1,4 +1,4 @@
-import { FormData } from '@/src/components/Forms/ContactForm';
+import { FormData } from 'src/components/Forms/ContactForm';
 
 export const sendEmail = async (data: FormData) =>
   fetch('/api/contact', {

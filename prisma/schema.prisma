@@ -12,7 +12,5 @@ datasource db {
 
 model Review {
   id String @id @default(cuid())
-  name String
-  surname String
-  text String
+  imageLink String
 }

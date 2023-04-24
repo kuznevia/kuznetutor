@@ -20,7 +20,7 @@ enum FormState {
   notSent = 'notSent',
 }
 
-const ContactForm = () => {
+const ContactForm = ({ inputRef }: { inputRef: React.RefObject<HTMLInputElement> }) => {
   const [formState, setFormState] = useState<FormState>(FormState.filling);
   const [formError, setFormError] = useState('');
   const [count, setCount] = useState(10);
@@ -88,6 +88,7 @@ const ContactForm = () => {
               <Input
                 {...register('name', { required: true })}
                 error={errors.name && { error: errors.name, text: 'Введите имя' }}
+                ref={inputRef}
               />
             </div>
             <div className="flex flex-col">
@@ -130,7 +131,7 @@ const ContactForm = () => {
                   text: 'Введите ваше сообщение',
                 }
               }
-              rows={10}
+              rows={5}
             />
           </div>
           <button

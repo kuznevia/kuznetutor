@@ -3,13 +3,13 @@ import Link from 'next/link';
 import LogoPic from 'public/assets/books.png';
 import React, { useEffect, useState } from 'react';
 import { AiOutlineClose, AiOutlineMail, AiOutlineMenu } from 'react-icons/ai';
-import { BsFillPersonLinesFill } from 'react-icons/bs';
 import { FiPhoneCall } from 'react-icons/fi';
 import { SlSocialVkontakte } from 'react-icons/sl';
+import { TfiWrite } from 'react-icons/tfi';
+import { Icon } from 'src/components/ui/Icon';
+import { links } from 'src/utils/links';
 
-import { Icon } from '@/src/components/ui/Icon';
-
-const Navbar = () => {
+const Navbar = ({ inputRef }: { inputRef: React.RefObject<HTMLInputElement> }) => {
   const [nav, setNav] = useState(false);
   const [shadow, setShadow] = useState(false);
 
@@ -57,7 +57,7 @@ const Navbar = () => {
                 Отзывы
               </li>
             </Link>
-            <Link href="/#contact">
+            <Link href="/#contact" onClick={() => inputRef.current?.focus()}>
               <li className="ml-10 text-small uppercase hover:text-[var(--color-secondary)] hover:scale-110 ease-in duration-300">
                 Контакты
               </li>
@@ -117,7 +117,7 @@ const Navbar = () => {
                   <li className="py-4 text-sm">Отзывы</li>
                 </div>
               </Link>
-              <Link href="/#contact">
+              <Link href="/#contact" onClick={() => inputRef.current?.focus()}>
                 <div onClick={() => setNav(false)} role="button" tabIndex={0}>
                   <li className="py-4 text-sm">Контакты</li>
                 </div>
@@ -128,10 +128,10 @@ const Navbar = () => {
                 Социальные сети
               </p>
               <div className="flex items-center justify-between my-4 w-full sm:w-[80%]">
-                <Icon Icon={SlSocialVkontakte} nav />
-                <Icon Icon={FiPhoneCall} nav />
-                <Icon Icon={AiOutlineMail} nav />
-                <Icon Icon={BsFillPersonLinesFill} nav />
+                <Icon link={links.vk()} Icon={SlSocialVkontakte} nav />
+                <Icon link={links.call()} Icon={FiPhoneCall} nav />
+                <Icon link={links.sendEmail()} Icon={AiOutlineMail} nav />
+                <Icon link={links.write()} Icon={TfiWrite} nav />
               </div>
             </div>
           </div>
