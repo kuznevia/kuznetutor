@@ -9,7 +9,7 @@ import { TfiWrite } from 'react-icons/tfi';
 import { Icon } from 'src/components/ui/Icon';
 import { links } from 'src/utils/links';
 
-const Navbar = () => {
+const Navbar = ({ inputRef }: { inputRef: React.RefObject<HTMLInputElement> }) => {
   const [nav, setNav] = useState(false);
   const [shadow, setShadow] = useState(false);
 
@@ -57,7 +57,7 @@ const Navbar = () => {
                 Отзывы
               </li>
             </Link>
-            <Link href="/#contact">
+            <Link href="/#contact" onClick={() => inputRef.current?.focus()}>
               <li className="ml-10 text-small uppercase hover:text-[var(--color-secondary)] hover:scale-110 ease-in duration-300">
                 Контакты
               </li>
@@ -117,7 +117,7 @@ const Navbar = () => {
                   <li className="py-4 text-sm">Отзывы</li>
                 </div>
               </Link>
-              <Link href="/#contact">
+              <Link href="/#contact" onClick={() => inputRef.current?.focus()}>
                 <div onClick={() => setNav(false)} role="button" tabIndex={0}>
                   <li className="py-4 text-sm">Контакты</li>
                 </div>

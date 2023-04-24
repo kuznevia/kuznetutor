@@ -8,7 +8,7 @@ import { TfiWrite } from 'react-icons/tfi';
 import { Icon } from 'src/components/ui/Icon';
 import { links } from 'src/utils/links';
 
-const Main = () => {
+const Main = ({ inputRef }: { inputRef: React.RefObject<HTMLInputElement> }) => {
   return (
     <div
       id="home"
@@ -28,7 +28,11 @@ const Main = () => {
           <Icon link={links.vk()} Icon={SlSocialVkontakte} />
           <Icon link={links.call()} Icon={FiPhoneCall} />
           <Icon link={links.sendEmail()} Icon={AiOutlineMail} />
-          <Icon link={links.write()} Icon={TfiWrite} />
+          <Icon
+            link={links.write()}
+            Icon={TfiWrite}
+            onClick={() => inputRef.current?.focus()}
+          />
         </div>
         <div className="hidden md:flex col-start-2 col-end-4 max-w-[1240px] p-2 justify-center items-center">
           <div>
@@ -38,7 +42,11 @@ const Main = () => {
               <Icon link={links.vk()} Icon={SlSocialVkontakte} />
               <Icon link={links.call()} Icon={FiPhoneCall} />
               <Icon link={links.sendEmail()} Icon={AiOutlineMail} />
-              <Icon link={links.write()} Icon={TfiWrite} />
+              <Icon
+                link={links.write()}
+                Icon={TfiWrite}
+                onClick={() => inputRef.current?.focus()}
+              />
             </div>
           </div>
         </div>

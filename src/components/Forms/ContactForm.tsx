@@ -20,7 +20,7 @@ enum FormState {
   notSent = 'notSent',
 }
 
-const ContactForm = () => {
+const ContactForm = ({ inputRef }: { inputRef: React.RefObject<HTMLInputElement> }) => {
   const [formState, setFormState] = useState<FormState>(FormState.filling);
   const [formError, setFormError] = useState('');
   const [count, setCount] = useState(10);
@@ -79,9 +79,6 @@ const ContactForm = () => {
   return (
     <div className="col-span-3 w-full h-auto shadow-xl shadow-gray-400 rounded-xl lg:p-4">
       <div className="p-4">
-        <h3 className="pb-2 text-[var(--color-secondary)]">
-          Заполните форму, и я свяжусь с вами
-        </h3>
         <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
           <div className="grid md:grid-cols-2 gap-4 w-full py-2">
             <div className="flex flex-col">
@@ -91,6 +88,7 @@ const ContactForm = () => {
               <Input
                 {...register('name', { required: true })}
                 error={errors.name && { error: errors.name, text: 'Введите имя' }}
+                ref={inputRef}
               />
             </div>
             <div className="flex flex-col">
