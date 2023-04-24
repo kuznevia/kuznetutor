@@ -1,18 +1,26 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import ReviewImg from 'public/assets/reviews.jpeg';
+import Image, { StaticImageData } from 'next/image';
 import React from 'react';
+import { IReview } from 'src/models/Client';
+import { reviewImages } from 'src/utils/static';
 
-import { IReview } from '@/src/models/Client';
-
-const ReviewItem = ({ review, title }: { review: IReview; title: string }) => {
+const ReviewItem = ({
+  review,
+  title,
+  setShowModal,
+  setReviewImage,
+}: {
+  review: IReview;
+  title: string;
+  setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setReviewImage: React.Dispatch<React.SetStateAction<StaticImageData>>;
+}) => {
   return (
     <div
       key={review.id}
       className="relative flex items-center justify-center h-auto w-full shadow-xl shadow-gray-400 rounde-xl p-4 group hover:bg-gradient-to-r from-[var(--bg-primary)] to-[var(--bg-secondary)]"
     >
       <Image
-        src={ReviewImg}
+        src={reviewImages.background}
         className="rounded-xl group-hover:opacity-10"
         height={500}
         alt="/"
@@ -21,14 +29,20 @@ const ReviewItem = ({ review, title }: { review: IReview; title: string }) => {
         <h3 className="text-[var(--color-secondary)] tracking-wider text-center text-white">
           {title}
         </h3>
-        <p className="pb-4 pt-2 text-center text-white">
-          {review.name} {review.surname}
-        </p>
-        <Link href={`reviews/${review.id}`}>
-          <p className="text-center py-3 rounded-lg text-white bg-[var(--bg-secondary)] fond-bold text-lg cursor-pointer">
-            Читать полностью
-          </p>
-        </Link>
+        <button
+          className="w-full p-4 mt-4"
+          onClick={() => {
+            if (review.imageLink === 'first' || review.imageLink === 'second') {
+              setReviewImage(reviewImages[review.imageLink]);
+              setShowModal(true);
+            } else {
+              // eslint-disable-next-line no-console
+              console.log('Неправильный путь до изображения');
+            }
+          }}
+        >
+          Читать полностью
+        </button>
       </div>
     </div>
   );

@@ -7,12 +7,11 @@ import Contact from 'src/components/Contact';
 import Main from 'src/components/Main';
 import Navbar from 'src/components/Navbar';
 import Reviews from 'src/components/Reviews';
-import { IReview } from 'src/models/Client';
 
 const prisma = new PrismaClient();
 
 export const getStaticProps = async () => {
-  const reviews: IReview[] = await prisma.review.findMany();
+  const reviews = await prisma.review.findMany();
   return {
     props: {
       reviews,
